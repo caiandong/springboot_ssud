@@ -1,0 +1,17 @@
+1用户  people
+	id：id	主键 自增
+	姓名:		name	非空
+	年龄：	age		非空
+	区域：	locale	默认 本地
+	联系方式：qq		默认 保密
+							email
+2书籍		book	
+	id：		id 主键 自增
+	书名：	bookname	非空
+	数量：	number	非空
+	阅读次数：readingcount	非空
+3个人阅读记录		readingrecord
+	id：id	主键 自增 
+	用户id：	user_id		外键	
+	书名id：	book_id		外键	
+	阅读时间：	readingtime	系统生成
