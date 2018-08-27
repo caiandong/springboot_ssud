@@ -1,3 +1,4 @@
+#这是原始表
 CREATE TABLE people (
     id int  PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(10) NOT NULL,
@@ -22,6 +23,7 @@ create table readrecord(
     foreign key (book_id) references book(id)
 );
 ============================
+#这是修改过后的 然后用备份功能提取出来的表结构
 DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
