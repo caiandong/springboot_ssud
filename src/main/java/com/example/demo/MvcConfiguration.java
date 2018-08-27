@@ -12,7 +12,7 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import java.util.Locale;
 
 @Configuration
-public class MyMvcConfiguration implements WebMvcConfigurer {
+public class MvcConfiguration implements WebMvcConfigurer {
     @Bean
     LocaleResolver localeResolver(){
         CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class aop {
     //可以配置多个切点
-    @Pointcut("execution(* com.example.demo.mytarget.*(..))")// the pointcut expression
+    @Pointcut("execution(* com.example.demo.aop.mytarget.*(..))")// the pointcut expression
     private void anyOldTransfer() {}// the pointcut signature
     @Before("anyOldTransfer()")
     public void nihao(){
