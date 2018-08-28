@@ -3,9 +3,12 @@ package com.example.demo.dao;
 import com.example.demo.model.Book;
 import com.example.demo.model.BookExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface BookMapper {
+
     long countByExample(BookExample example);
 
     int deleteByExample(BookExample example);

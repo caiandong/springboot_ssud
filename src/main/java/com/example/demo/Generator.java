@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Generator {
     public static void main(String[] args)throws Exception {
-        List<String> warnings = new ArrayList<String>();
+        /*List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
         //File file = new File("nihao.txt");
         //System.out.println(file.getAbsolutePath());
@@ -21,6 +21,6 @@ public class Generator {
         Configuration config = cp.parseConfiguration(configFile);
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
-        myBatisGenerator.generate(null);
+        myBatisGenerator.generate(null);*/
     }
 }
