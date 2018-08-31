@@ -6,7 +6,11 @@ import com.example.demo.dao.PeopleMapper;
 import com.example.demo.model.People;
 import com.example.demo.model.PeopleExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,7 +21,12 @@ public class controller {
     mytarget tar;
     @Autowired
     PeopleMapper people;
-    @GetMapping("/")
+//    @ModelAttribute
+//    void mm(Model m){
+//        m.addAttribute();
+//    }
+
+    @GetMapping("/haha")
     public  List<?> nni(){
         tar.nishisehi();
         People pl=new People();
@@ -31,5 +40,13 @@ public class controller {
         //return people.selectByExample(new PeopleExample());
         return  people.myselect(1,3);
     }
-
+//    @GetMapping("/")
+//    public String mas(ModelMap m){
+//        m.addAttribute("language","")
+//        return "login";
+//    }
+    @PostMapping("/nihao")
+    String mmmmmmm(){
+        return "dddddd";
+    }
 }
