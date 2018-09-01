@@ -6,6 +6,7 @@ import com.example.demo.dao.PeopleMapper;
 import com.example.demo.model.People;
 import com.example.demo.model.PeopleExample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
-@RestController
+@Controller
 public class controller {
     @Autowired
     mytarget tar;
@@ -46,7 +48,8 @@ public class controller {
 //        return "login";
 //    }
     @PostMapping("/nihao")
-    String mmmmmmm(){
-        return "dddddd";
+    String mmmmmmm(HttpSession se,String username){
+        se.setAttribute("username",username);
+        return "redirect:album";
     }
 }
