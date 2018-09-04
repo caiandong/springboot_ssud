@@ -36,6 +36,7 @@ public class upload {
         System.out.println(duankou.getXuniduankou());
         List<String> list;
         list=book.selectallbookname();
+        System.out.println(list);
         return list;
     }
     @PostMapping("/up")
