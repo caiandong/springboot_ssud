@@ -43,6 +43,12 @@
             <artifactId>bootstrap</artifactId>
             <version>4.1.3</version>
         </dependency>
+        <!--@ConfigurationProperties-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>

@@ -71,6 +71,9 @@
   </sql>
   <insert id="myinsert">
   </insert>
+  <select id="selectallbookname" resultType="String">
+    select bookname from book;
+  </select>
   <select id="selectByExample" parameterType="com.example.demo.model.BookExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
