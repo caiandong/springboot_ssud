@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.MycustomBean.GongJu;
 import com.example.demo.dao.BookMapper;
 import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,24 +42,11 @@ public class upload {
     }
     @PostMapping("/up")
     @ResponseBody
-    String sssa(/*MultipartFile file,*/ Part file) throws IOException {
-        //String filename=file.getOriginalFilename();
-        //System.out.println(filename);
-        //if(filename==null)
-        //    return "名字为空";
-//        ByteBuffer b=ByteBuffer.allocate(1024);
-//        try {
-//            InputStream in=file.getInputStream();
-//            OutputStream out=new FileOutputStream("/file"+filename);
-//            FileChannel ch = ((FileOutputStream) out).getChannel();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        OutputStream out=new FileOutputStream(filename);
-//        out.write(file.getBytes());
-//        out.close();
-        System.out.println(file.getSubmittedFileName());
-        file.write(file.getSubmittedFileName());
+    String sssa( Part file) throws IOException {
+
+//        System.out.println(file.getSubmittedFileName());
+//        file.write(file.getSubmittedFileName());
+        GongJu.ChangeImageSize(file.getInputStream(),new FileOutputStream("D:\\sss.jpeg"),500,300);
         return "好了";
     }
 }
