@@ -66,39 +66,34 @@
     <section class="jumbotron text-center">
         <div class="container">
             <h1 class="jumbotron-heading" th:text="#{welcome}+' '+${session.username}">Album example</h1>
-            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator,
-                etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+            <p class="lead text-muted">土地是以它的肥沃和收获而被估价的；才能也是土地，不过它生产的不是粮食，而是真理。如果只能滋生瞑想和幻想的话，即使再大的才能也只是砂地或盐池，那上面连小草也长不出来的。 —— 别林斯基</p>
             <p>
-                <a href="#" class="btn btn-primary my-2">Main call to action</a>
-                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                <a href="#" class="btn btn-primary my-2">主调用动作</a>
+                <a href="#" class="btn btn-secondary my-2">第二动作</a>
             </p>
         </div>
     </section>
-<div class="col-md-12">
-    <button class="btn btn-sm btn-primary" id="mybt">sssssss</button>
-</div>
+
     <div class="album py-5 bg-light">
-        <div class="container">
+        <div class="container" id="dds">
 <!--格式化代码 ctrl+alt+l-->
-            <div class="row" id="divs">
-                <div class="col-md-4" id="div1">
-                    <div class="card mb-4 box-shadow">
-                        <img class="card-img-top"
-                             <!--data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail"
-                             alt="Card image cap"-->>
-                        <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                                </div>
-                                <small class="text-muted">9 mins</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="roo">
+                <!--<div class="col-md-4" >-->
+                    <!--<div class="card mb-4 box-shadow">-->
+                        <!--<img class="card-img-top" src=""  >-->
+                        <!--<div class="card-body">-->
+                            <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to-->
+                                <!--additional content. This content is a little bit longer.</p>-->
+                            <!--<div class="d-flex justify-content-between align-items-center">-->
+                                <!--<div class="btn-group">-->
+                                    <!--<button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
+                                    <!--<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
+                                <!--</div>-->
+                                <!--<small class="text-muted">9 mins</small>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
 
             </div>
             <!--<b>Hello</b>-->
@@ -122,43 +117,31 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
-        <!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
-        <!--crossorigin="anonymous"></script>-->
+
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 <script type="text/javascript">
-    var n=0;
     $(function () {
-        // $.ajax({
-        //     url:"/getimages",
-        //     type:"get",
-        //
-        //     success:function (mes) {
-        //         var d=$("#divs #div1:last");
-        //         $.each(mes,function (i,item) {
-        //
-        //             var ss=d.clone().insertAfter(d);
-        //             ss.find("img").attr({src:"/images/"+item+".jpg"});
-        //             //alert(item);
-        //         })
-        //     },
-        //     error:function () {
-        //         var d=$("#divs #div1:last");
-        //     }
-        // });
-       // $("#divs #div1:first").hide();
-        $("#mybt").on("click",function () {
-            n++;
-            var d=$("#divs #div1:last");
-            d.clone().insertAfter(d).prepend("<a>"+n+"</a> ");
-            alert(d.text());
-
-        });
-
-
-
+       $.ajax({
+          url:"/getimages",
+          type:"get",
+          success:function (data) {
+              $.each(data,function (index,item) {
+                  f(item);
+              })
+          }
+       });
     });
 
+function f(data) {
+    //var $div=$("<div class='row'></div>");
+    var $div1=$("<div class='col-md-4' ></div>");
+    var $div2=$("<div class='card mb-4 box-shadow'></div>");
+    var $div3=$("<image class='card-img-top'></image>").attr({src:"images/"+data+".jpg",height:"300",width:"500"}).appendTo($div2);
+    $div2.appendTo($div1);
+    $div1.appendTo("#roo");
+
+    //var $div2=$("<div class='card-body'></div>")
+}
 </script>
 <script src="assets/js/vendor/popper.min.js"></script>
 <script src="dist/js/bootstrap.min.js"></script>
