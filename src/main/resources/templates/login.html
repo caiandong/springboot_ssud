@@ -33,12 +33,12 @@
     <h1 class="h3 mb-3 font-weight-normal text-center" th:text="#{info}"/>
 
     <div class="form-label-group ">
-        <input type="email" id="inputEmail" name="username" class="form-control"  required autofocus>
+        <input type="email" id="inputEmail" name="username" class="form-control" th:placeholder="#{email}" required autofocus>
         <label for="inputEmail" th:text="#{email}">Email address</label>
     </div>
 
     <div class="form-label-group">
-        <input type="password" id="inputPassword"  name="password" class="form-control"  required>
+        <input type="password" id="inputPassword"  name="password" class="form-control" th:placeholder="#{password}" required>
         <label for="inputPassword" th:text="#{password}">Password</label>
     </div>
 
