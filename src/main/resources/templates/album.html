@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!--<link rel="icon" href="../../../../favicon.ico">-->
-
     <title th:text="#{album_title}">Album example for Bootstrap</title>
-
     <!-- Bootstrap core CSS -->
     <link href="dist/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="examples/album/album.css" rel="stylesheet">
-    <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"-->
-            <!--integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"-->
-            <!--crossorigin="anonymous"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 
@@ -78,26 +71,7 @@
         <div class="container" id="dds">
 <!--格式化代码 ctrl+alt+l-->
             <div class="row" id="roo">
-                <!--<div class="col-md-4" >-->
-                    <!--<div class="card mb-4 box-shadow">-->
-                        <!--<img class="card-img-top" src=""  >-->
-                        <!--<div class="card-body">-->
-                            <!--<p class="card-text">This is a wider card with supporting text below as a natural lead-in to-->
-                                <!--additional content. This content is a little bit longer.</p>-->
-                            <!--<div class="d-flex justify-content-between align-items-center">-->
-                                <!--<div class="btn-group">-->
-                                    <!--<button type="button" class="btn btn-sm btn-outline-secondary">View</button>-->
-                                    <!--<button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>-->
-                                <!--</div>-->
-                                <!--<small class="text-muted">9 mins</small>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-
             </div>
-            <!--<b>Hello</b>-->
-            <!--<p>, how are you?</p>-->
         </div>
     </div>
 
@@ -125,22 +99,30 @@
           url:"/getimages",
           type:"get",
           success:function (data) {
+              if(data.length==0)
+                  return;
               $.each(data,function (index,item) {
-                  f(item);
-              })
+                  creatpicture(item);
+
+              });
           }
        });
+
     });
 
-function f(data) {
-    //var $div=$("<div class='row'></div>");
-    var $div1=$("<div class='col-md-4' ></div>");
-    var $div2=$("<div class='card mb-4 box-shadow'></div>");
-    var $div3=$("<image class='card-img-top'></image>").attr({height:"300",width:"500",src:"images/"+data+".jpg"}).appendTo($div2);
-    $div2.appendTo($div1);
-    $div1.appendTo("#roo");
-
-    //var $div2=$("<div class='card-body'></div>")
+function creatpicture(item) {
+    var x1=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">View</button>");
+    var x2=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">Edit</button>");
+    var y1=$("<div class=\"btn-group\"></div>").append(x1).append(x2);
+    var y2=$("<small class=\"text-muted\">9 mins</small>");
+    var z1=$("<p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to\n" +
+        "                                additional content. This content is a little bit longer.</p>");
+    var z2=$("<div class=\"d-flex justify-content-between align-items-center\"></div>").append(y1).append(y2);
+    var a1=$("<img class=\"card-img-top\">").attr({src:"images/"+item+".jpg",width:100,height:300});
+    var a2=$("<div class=\"card-body\"></div>").append(z1).append(z2);
+    var b1=$("<div class=\"card mb-4 box-shadow\"></div>").append(a1).append(a2);
+    var c1=$("<div class='col-md-4' ></div>").append(b1);
+    $("#roo").append(c1);
 }
 </script>
 <script src="assets/js/vendor/popper.min.js"></script>

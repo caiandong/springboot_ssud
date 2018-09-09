@@ -13,7 +13,7 @@
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/first"
+                        connectionURL="jdbc:mysql://192.168.1.2:3306/first"
                         userId="anyone"
                         password="123456">
         </jdbcConnection>
@@ -21,7 +21,7 @@
         <javaTypeResolver >
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
-        <!--仍然是相对路径,即工程下的第一个目录.targetProject targetPackage 两个部分组成最终目录-->
+        <!--仍然是相对路径,即工程所在目录。targetProject targetPackage 两个部分组成最终目录-->
         <javaModelGenerator targetPackage="com.example.demo.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />

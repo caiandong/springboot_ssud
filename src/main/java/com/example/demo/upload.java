@@ -20,33 +20,27 @@ import java.util.List;
 @Controller
 @EnableConfigurationProperties({serverproperties.class})
 public class upload {
+    @Autowired
+    private BookMapper book;
     public  interface checkfile{
         public default List<String> existfile(List<String> list){
             return list;
         }
+    }
 
 
-    }
-    @Autowired
-    private serverproperties duankou;
-    @Autowired
-    private BookMapper book;
-    @GetMapping("/getimages")
-    @ResponseBody
-    public List<String> mmad(){
-        System.out.println(duankou.getXuniduankou());
-        List<String> list;
-        list=book.selectallbookname();
-        System.out.println(list);
-        return list;
-    }
     @PostMapping("/up")
     @ResponseBody
     String sssa( Part file) throws IOException {
+        FileOutputStream out = new FileOutputStream("D:\\" + file.getSubmittedFileName());
+        try {
+            GongJu.ChangeImageSize(file.getInputStream(),out,500,300);
 
-//        System.out.println(file.getSubmittedFileName());
-//        file.write(file.getSubmittedFileName());
-        GongJu.ChangeImageSize(file.getInputStream(),new FileOutputStream("D:\\sss.jpeg"),500,300);
+        }catch (IOException except){
+            new File("D:\\" + file.getSubmittedFileName()).delete();
+            throw except;
+        }
+
         return "好了";
     }
 }
