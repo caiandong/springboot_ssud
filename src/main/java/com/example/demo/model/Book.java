@@ -41,6 +41,18 @@ public class Book {
         return readcount;
     }
 
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", bookname='" + bookname + '\'' +
+                ", hasnumber=" + hasnumber +
+                ", readcount=" + readcount +
+                ", author='" + author + '\'' +
+                ", picturename='" + picturename + '\'' +
+                '}';
+    }
+
     public void setReadcount(Integer readcount) {
         this.readcount = readcount;
     }

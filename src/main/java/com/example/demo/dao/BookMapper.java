@@ -8,7 +8,9 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface BookMapper {
+
     List<String> selectallbookname();
+
     long countByExample(BookExample example);
 
     int deleteByExample(BookExample example);

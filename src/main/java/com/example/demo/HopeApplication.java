@@ -8,11 +8,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
+//开启事务
+@EnableTransactionManagement
 @SpringBootApplication
 public class HopeApplication extends SpringBootServletInitializer {
     @Override

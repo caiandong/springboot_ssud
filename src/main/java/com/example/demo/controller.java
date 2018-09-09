@@ -4,11 +4,8 @@ import com.example.demo.aop.mytarget;
 import com.example.demo.dao.BookMapper;
 import com.example.demo.dao.PeopleMapper;
 import com.example.demo.model.People;
-import com.example.demo.model.PeopleExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -21,7 +18,7 @@ public class controller {
     @Autowired
     PeopleMapper people;
     @Autowired
-    private serverproperties duankou;
+    private Serverproperties duankou;
     @Autowired
     private BookMapper book;
 

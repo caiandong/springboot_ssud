@@ -36,6 +36,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
         registry.addViewController("/album").setViewName("album");
         registry.addViewController("/te").setViewName("template");
         registry.addViewController("/mas").setViewName("/mas");
+        registry.addViewController("/form").setViewName("/form");
     }
 
     @Override
