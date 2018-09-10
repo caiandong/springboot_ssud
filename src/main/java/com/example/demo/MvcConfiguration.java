@@ -1,7 +1,7 @@
 package com.example.demo;
 
-import com.example.demo.MycustomBean.LoginInterceptor;
-import com.example.demo.MycustomBean.MyLocaleChangeInterceptor;
+import com.example.demo.MycustomBeanAndTools.LoginInterceptor;
+import com.example.demo.MycustomBeanAndTools.MyLocaleChangeInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -27,16 +27,18 @@ public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new MyLocaleChangeInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/album");
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/houtai");
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("login");
+        registry.addViewController("/").setViewName("shouye1");
         registry.addViewController("/album").setViewName("album");
         registry.addViewController("/te").setViewName("template");
-        registry.addViewController("/mas").setViewName("/mas");
-        registry.addViewController("/form").setViewName("/form");
+        registry.addViewController("/mas").setViewName("mas");
+        registry.addViewController("/form").setViewName("form");
+        registry.addViewController("/shouye").setViewName("shouye");
+        registry.addViewController("/login").setViewName("login");
     }
 
     @Override

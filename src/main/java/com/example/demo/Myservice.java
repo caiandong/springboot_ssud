@@ -1,10 +1,9 @@
 package com.example.demo;
 
-import com.example.demo.MycustomBean.GongJu;
+import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.dao.BookMapper;
 import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

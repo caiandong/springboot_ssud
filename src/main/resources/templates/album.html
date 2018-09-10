@@ -102,17 +102,26 @@
               if(data.length==0)
                   return;
               $.each(data,function (index,item) {
-                  creatpicture(item);
+                  creatpicture(index,item);
 
               });
           }
        });
-
+       $("#roo").on("click","button",function (event) {
+           //alert($(this))
+            if($(event.target).is("button"))
+             $(this).toggleClass("active");
+       })
+        // $("#roo").on("mouseenter mouseleave","button",function (event) {
+        //     //alert($(this))
+        //     if($(event.target).is("button"))
+        //         $(this).toggleClass("active");
+        // })
     });
 
-function creatpicture(item) {
-    var x1=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">View</button>");
-    var x2=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\">Edit</button>");
+function creatpicture(index,item) {
+    var x1=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" >详情</button>").attr({id:"v"+index});
+    var x2=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" >编辑</button>").attr({id:"e"+index});
     var y1=$("<div class=\"btn-group\"></div>").append(x1).append(x2);
     var y2=$("<small class=\"text-muted\">9 mins</small>");
     var z1=$("<p class=\"card-text\">This is a wider card with supporting text below as a natural lead-in to\n" +

@@ -1,4 +1,4 @@
-package com.example.demo.MycustomBean;
+package com.example.demo.MycustomBeanAndTools;
 
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 

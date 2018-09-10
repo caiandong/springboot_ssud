@@ -1,11 +1,15 @@
-package com.example.demo;
+package com.example.demo.Controller;
 
-import com.example.demo.MycustomBean.GongJu;
+import com.example.demo.MycustomBeanAndTools.GongJu;
+import com.example.demo.MycustomBeanAndTools.PictureUploadFailException;
+import com.example.demo.Myservice;
+import com.example.demo.Serverproperties;
 import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.PostConstruct;
@@ -34,14 +38,22 @@ public class upload {
         this.dir =Serverproperties.translateDir(serverproperties.getXuniduankou());
     }
 
-    @PostMapping("/up")
+    @PostMapping("/book")
     @ResponseBody
     String sssa(Book book,Part file) throws Exception {
+        return insertAndupdate(book, file);
+    }
+    @PutMapping("/book")
+    @ResponseBody
+    String dasdasd(Book book,Part file)throws Exception{
+        return insertAndupdate(book,file);
+    }
+    private String insertAndupdate(Book book, Part file) throws Exception {
         System.out.println(book);
         if(file==null) {
             book.setPicturename(null);
             myservice.insertbook(book);
-            return "没有图片";
+            return "没有上传图片";
         }
         String name = UUID.randomUUID().toString() + "."+file.getSubmittedFileName().split("\\.")[1];
         File file1 = new File(dir +name );
@@ -52,7 +64,7 @@ public class upload {
             myservice.insertbook(book);
         }catch (Exception except){
             file1.delete();
-            throw except;
+            throw new PictureUploadFailException("图片传输未完成",except);
         }
 
         return "好了";

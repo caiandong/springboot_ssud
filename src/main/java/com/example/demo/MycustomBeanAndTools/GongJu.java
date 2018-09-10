@@ -1,4 +1,4 @@
-package com.example.demo.MycustomBean;
+package com.example.demo.MycustomBeanAndTools;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
