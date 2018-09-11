@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 
+import com.example.demo.Serverproperties;
 import com.example.demo.myServerproperties;
 import com.example.demo.Service.BookService;
 import com.example.demo.aop.mytarget;
@@ -24,7 +25,7 @@ public class controller {
     @Autowired
     PeopleMapper people;
     @Autowired
-    private myServerproperties duankou;
+    private Serverproperties duankou;
     @Autowired
     private BookMapper book;
     @Autowired

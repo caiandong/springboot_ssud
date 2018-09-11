@@ -2,6 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.MycustomBeanAndTools.PictureUploadFailException;
+import com.example.demo.Serverproperties;
 import com.example.demo.Service.BookService;
 import com.example.demo.myServerproperties;
 import com.example.demo.model.Book;
@@ -19,12 +20,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
-@EnableConfigurationProperties({myServerproperties.class})
+@EnableConfigurationProperties({Serverproperties.class})
 public class upload {
     @Autowired
     BookService bookService;
     @Autowired
-    private myServerproperties myServerproperties;
+    private Serverproperties myServerproperties;
 
     private  String dir;
 
