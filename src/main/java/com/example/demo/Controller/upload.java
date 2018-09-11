@@ -2,7 +2,7 @@ package com.example.demo.Controller;
 
 import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.MycustomBeanAndTools.PictureUploadFailException;
-import com.example.demo.Myservice;
+import com.example.demo.Service.BookService;
 import com.example.demo.Serverproperties;
 import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.UUID;
 @EnableConfigurationProperties({Serverproperties.class})
 public class upload {
     @Autowired
-    Myservice myservice;
+    BookService bookService;
     @Autowired
     private  Serverproperties serverproperties;
 
@@ -52,7 +52,7 @@ public class upload {
         System.out.println(book);
         if(file.getSubmittedFileName()=="") {
             book.setPicturename(null);
-            myservice.insertbook(book);
+            bookService.insertbook(book);
             return "没有上传图片";
         }
         String name = UUID.randomUUID().toString() + "."+file.getSubmittedFileName().split("\\.")[1];
@@ -61,7 +61,7 @@ public class upload {
         try {
             FileOutputStream out = new FileOutputStream(file1);
             GongJu.ChangeImageSize(file.getInputStream(),out,serverproperties.getWidth(),serverproperties.getHeight());
-            myservice.insertbook(book);
+            bookService.insertbook(book);
         }catch (Exception except){
             file1.delete();
             throw new PictureUploadFailException("图片传输未完成",except);

@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Serverproperties;
+import com.example.demo.Service.BookService;
 import com.example.demo.aop.mytarget;
 import com.example.demo.dao.BookMapper;
 import com.example.demo.dao.PeopleMapper;
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Controller
 public class controller {
+    //aop测试
     @Autowired
     mytarget tar;
     @Autowired
@@ -23,6 +25,8 @@ public class controller {
     private Serverproperties duankou;
     @Autowired
     private BookMapper book;
+    @Autowired
+    private BookService bookService;
 
     @GetMapping("/haha")
     public  List<?> nni(){

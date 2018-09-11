@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.Service;
 
 import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.dao.BookMapper;
@@ -13,7 +13,7 @@ import java.io.OutputStream;
 
 @Service
 @Transactional
-public class Myservice {
+public class BookService {
     @Autowired
     private BookMapper bookMapper;
     public int insertbook(Book book, Part part, OutputStream out,int width,int height)throws IOException {
@@ -24,6 +24,9 @@ public class Myservice {
     }
     public int insertbook(Book book){
         return bookMapper.insertSelective(book);
+    }
+    public int pageselect(){
+
     }
 
 }
