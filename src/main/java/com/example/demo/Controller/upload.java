@@ -3,7 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.MycustomBeanAndTools.PictureUploadFailException;
 import com.example.demo.Service.BookService;
-import com.example.demo.Serverproperties;
+import com.example.demo.myServerproperties;
 import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -19,12 +19,12 @@ import java.util.List;
 import java.util.UUID;
 
 @Controller
-@EnableConfigurationProperties({Serverproperties.class})
+@EnableConfigurationProperties({myServerproperties.class})
 public class upload {
     @Autowired
     BookService bookService;
     @Autowired
-    private  Serverproperties serverproperties;
+    private myServerproperties myServerproperties;
 
     private  String dir;
 
@@ -35,7 +35,7 @@ public class upload {
     }
     @PostConstruct
     public void innit() {
-        this.dir =serverproperties.translateDir(serverproperties.getXuniduankou());
+        this.dir = myServerproperties.translateDir(myServerproperties.getXuniduankou());
     }
 
     @PostMapping("/book")
@@ -60,7 +60,7 @@ public class upload {
         book.setPicturename(name);
         try {
             FileOutputStream out = new FileOutputStream(file1);
-            GongJu.ChangeImageSize(file.getInputStream(),out,serverproperties.getWidth(),serverproperties.getHeight());
+            GongJu.ChangeImageSize(file.getInputStream(),out, myServerproperties.getWidth(), myServerproperties.getHeight());
             bookService.insertbook(book);
         }catch (Exception except){
             file1.delete();

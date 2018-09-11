@@ -3,7 +3,7 @@ package com.example.demo;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "myserver.se")
-public class Serverproperties {
+public class myServerproperties {
     private String xuniduankou;
     private int height;
     private int width;
@@ -35,3 +35,5 @@ public class Serverproperties {
         return dir;
     }
 }
+
+
