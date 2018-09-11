@@ -3,6 +3,7 @@ package com.example.demo.Service;
 import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.dao.BookMapper;
 import com.example.demo.model.Book;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.servlet.http.Part;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.List;
 
 @Service
 @Transactional
@@ -25,8 +27,9 @@ public class BookService {
     public int insertbook(Book book){
         return bookMapper.insertSelective(book);
     }
-    public int pageselect(){
-
+    public List<Book> pageselect(int pagenum){
+        PageHelper.startPage(pagenum, 3);
+        return bookMapper.selectByExample(null);
     }
 
 }

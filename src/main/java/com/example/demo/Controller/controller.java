@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+
 import com.example.demo.Serverproperties;
 import com.example.demo.Service.BookService;
 import com.example.demo.aop.mytarget;
@@ -7,6 +8,7 @@ import com.example.demo.dao.BookMapper;
 import com.example.demo.dao.PeopleMapper;
 import com.example.demo.model.Book;
 import com.example.demo.model.People;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -46,10 +48,10 @@ public class controller {
     }
     @GetMapping("/getimages")
     @ResponseBody
-    public List<Book> mmad(){
-        System.out.println(duankou.getXuniduankou());
-        List<Book> list=book.selectByExample(null);
-        System.out.println(list);
-        return list;
+    public List<Book> mmad(@RequestParam(defaultValue = "1") int pagenum){
+
+        List<Book> pageselect = bookService.pageselect(pagenum);
+        System.out.println(pageselect);
+        return pageselect;
     }
 }

@@ -94,31 +94,62 @@
 
 <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 <script type="text/javascript">
+    var pageNum = 1;
+    var hasbook=true;
     $(function () {
-       $.ajax({
-          url:"/getimages",
-          type:"get",
-          success:function (data) {
-              if(data.length==0)
-                  return;
-              $.each(data,function (index,item) {
-                  creatpicture(index,item);
+        $(document).on('nextPage', function(event, scrollToVisible) {
+            if(hasbook) {
+                getpicture(pageNum++);
+                if (scrollToVisible) {
+                    var newTop = $data.offset().top;
+                    $(window).scrollTop(newTop);
+                }
 
-              });
-          }
-       });
-       // $("#roo").on("click","button",function (event) {
-       //     //alert($(this))
-       //      if($(event.target).is("button"))
-       //       $(this).toggleClass("active");
-       // })
-        // $("#roo").on("mouseenter mouseleave","button",function (event) {
-        //     //alert($(this))
-        //     if($(event.target).is("button"))
-        //         $(this).toggleClass("active");
-        // })
+
+            }
+
+        });
+        var timer = 0;
+        $(window).scroll(function() {
+            if (!timer) {
+                timer = setTimeout(function() {
+                    checkScrollPosition();
+                    timer = 0;
+                }, 250);
+            }
+        }).trigger('scroll');
+
+
     });
 
+function getpicture(num) {
+    $.ajax({
+        url:"/getimages",
+        data:{pagenum:num},
+        type:"get",
+        success:function (data) {
+            if(data.length==0)
+            {
+                hasbook=false;
+                return;
+            }
+
+            $.each(data,function (index,item) {
+                creatpicture(index,item);
+
+            });
+            checkScrollPosition();
+        }
+    });
+}
+
+
+function checkScrollPosition() {
+    var distance = $(window).scrollTop() + $(window).height();
+    if ($('#roo').height() <= distance) {
+        $(document).trigger('nextPage');
+    }
+}
 function creatpicture(index,item) {
     var x1=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" >详情</button>").attr({id:"v"+index});
     var x2=$("<button type=\"button\" class=\"btn btn-sm btn-outline-secondary\" >编辑</button>").attr({id:"e"+index});
@@ -126,7 +157,7 @@ function creatpicture(index,item) {
     var y2=$("<small class=\"text-muted\">9 mins</small>");
     var z1=$("<p class=\"card-text\"></p>").html(item.bookdescribe);
     var z2=$("<div class=\"d-flex justify-content-between align-items-center\"></div>").append(y1).append(y2);
-    var a1=$("<img class=\"card-img-top\">").attr({src:"images/"+item.bookname+".jpg",width:100,height:300});
+    var a1=$("<img class=\"card-img-top\">").attr({src:"images/"+item.picturename,width:100,height:300});
     var a2=$("<div class=\"card-body\"></div>").append(z1).append(z2);
     var b1=$("<div class=\"card mb-4 box-shadow\"></div>").append(a1).append(a2);
     var c1=$("<div class='col-md-4' ></div>").append(b1);
