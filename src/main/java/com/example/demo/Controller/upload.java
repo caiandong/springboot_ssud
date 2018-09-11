@@ -50,7 +50,7 @@ public class upload {
     }
     private String insertAndupdate(Book book, Part file) throws Exception {
         System.out.println(book);
-        if(file==null) {
+        if(file.getSubmittedFileName()=="") {
             book.setPicturename(null);
             myservice.insertbook(book);
             return "没有上传图片";

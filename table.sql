@@ -35,10 +35,11 @@ CREATE TABLE `book` (
   `readcount` int(64) NOT NULL,
   `author` varchar(10) DEFAULT NULL,
   `picturename` varchar(45) DEFAULT NULL,
+  `bookdescribe` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `bookname` (`bookname`),
   UNIQUE KEY `picturename` (`picturename`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

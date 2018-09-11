@@ -38,12 +38,12 @@
         <table tableName="book">
 
         </table>
-        <table tableName="people">
+        <!--<table tableName="people">-->
 
-        </table>
-        <table tableName="readrecord">
+        <!--</table>-->
+        <!--<table tableName="readrecord">-->
 
-        </table>
+        <!--</table>-->
 
     </context>
 </generatorConfiguration>

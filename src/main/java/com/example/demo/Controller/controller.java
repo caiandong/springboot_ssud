@@ -4,6 +4,7 @@ import com.example.demo.Serverproperties;
 import com.example.demo.aop.mytarget;
 import com.example.demo.dao.BookMapper;
 import com.example.demo.dao.PeopleMapper;
+import com.example.demo.model.Book;
 import com.example.demo.model.People;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,9 +42,9 @@ public class controller {
     }
     @GetMapping("/getimages")
     @ResponseBody
-    public List<String> mmad(){
+    public List<Book> mmad(){
         System.out.println(duankou.getXuniduankou());
-        List<String> list=book.selectallbookname();
+        List<Book> list=book.selectByExample(null);
         System.out.println(list);
         return list;
     }

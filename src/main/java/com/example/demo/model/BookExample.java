@@ -493,6 +493,76 @@ public class BookExample {
             addCriterion("picturename not between", value1, value2, "picturename");
             return (Criteria) this;
         }
+
+        public Criteria andBookdescribeIsNull() {
+            addCriterion("bookdescribe is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeIsNotNull() {
+            addCriterion("bookdescribe is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeEqualTo(String value) {
+            addCriterion("bookdescribe =", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotEqualTo(String value) {
+            addCriterion("bookdescribe <>", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeGreaterThan(String value) {
+            addCriterion("bookdescribe >", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeGreaterThanOrEqualTo(String value) {
+            addCriterion("bookdescribe >=", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeLessThan(String value) {
+            addCriterion("bookdescribe <", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeLessThanOrEqualTo(String value) {
+            addCriterion("bookdescribe <=", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeLike(String value) {
+            addCriterion("bookdescribe like", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotLike(String value) {
+            addCriterion("bookdescribe not like", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeIn(List<String> values) {
+            addCriterion("bookdescribe in", values, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotIn(List<String> values) {
+            addCriterion("bookdescribe not in", values, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeBetween(String value1, String value2) {
+            addCriterion("bookdescribe between", value1, value2, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotBetween(String value1, String value2) {
+            addCriterion("bookdescribe not between", value1, value2, "bookdescribe");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
