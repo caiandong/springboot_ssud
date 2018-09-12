@@ -2,6 +2,8 @@ package com.example.demo;
 
 import com.example.demo.MycustomBeanAndTools.LoginInterceptor;
 import com.example.demo.MycustomBeanAndTools.MyLocaleChangeInterceptor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.LocaleResolver;
@@ -14,7 +16,10 @@ import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import java.util.Locale;
 
 @Configuration
+@EnableConfigurationProperties({Serverproperties.class})
 public class MvcConfiguration implements WebMvcConfigurer {
+    @Autowired
+    private Serverproperties serverproperties;
     @Bean
     LocaleResolver localeResolver(){
         CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
@@ -43,6 +48,6 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        //registry.addResourceHandler("/ss").addResourceLocations("");
+        registry.addResourceHandler("/images").addResourceLocations(serverproperties.getXuniduankou());
     }
 }

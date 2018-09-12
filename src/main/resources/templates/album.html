@@ -96,6 +96,7 @@
 <script type="text/javascript">
     var pageNum = 1;
     var hasbook=true;
+
     $(function () {
         $(document).on('nextPage', function(event, scrollToVisible) {
             if(hasbook) {
@@ -128,6 +129,7 @@ function getpicture(num) {
         data:{pagenum:num},
         type:"get",
         success:function (data) {
+
             if(data.length==0)
             {
                 hasbook=false;
@@ -136,9 +138,8 @@ function getpicture(num) {
 
             $.each(data,function (index,item) {
                 creatpicture(index,item);
-
             });
-            checkScrollPosition();
+
         }
     });
 }

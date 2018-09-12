@@ -4,7 +4,6 @@ import com.example.demo.MycustomBeanAndTools.GongJu;
 import com.example.demo.MycustomBeanAndTools.PictureUploadFailException;
 import com.example.demo.Serverproperties;
 import com.example.demo.Service.BookService;
-import com.example.demo.myServerproperties;
 import com.example.demo.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
