@@ -28,7 +28,7 @@ public class BookService {
         return bookMapper.insertSelective(book);
     }
     public List<Book> pageselect(int pagenum){
-        PageHelper.startPage(pagenum, 3);
+        PageHelper.startPage(pagenum, 6);
         return bookMapper.selectByExample(null);
     }
 

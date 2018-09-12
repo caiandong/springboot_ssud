@@ -5,10 +5,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "myserver.se")
 public class Serverproperties {
     private String xuniduankou;
-    private int height;
-    private int width;
+    private Integer height;
+    private Integer width;
 
-    public int getWidth() {
+    public Integer getWidth() {
         return width;
     }
 
@@ -16,7 +16,7 @@ public class Serverproperties {
         this.width = width;
     }
 
-    public int getHeight() {
+    public Integer getHeight() {
         return height;
     }
 
@@ -25,14 +25,16 @@ public class Serverproperties {
     }
 
     public String getXuniduankou() {
-        return xuniduankou;
+        return translateDir(xuniduankou);
     }
 
     public void setXuniduankou(String xuniduankou) {
         this.xuniduankou = xuniduankou;
     }
-    public static String translateDir(String dir){
-        return dir;
+    private   String translateDir(String dir){
+        if (dir.lastIndexOf(dir.length()-1)=='/')
+            return dir;
+        return dir+"/";
     }
 }
 

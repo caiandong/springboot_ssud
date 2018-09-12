@@ -35,7 +35,7 @@ public class upload {
     }
     @PostConstruct
     public void innit() {
-        this.dir = myServerproperties.translateDir(myServerproperties.getXuniduankou());
+        this.dir = myServerproperties.getXuniduankou();
     }
 
     @PostMapping("/book")

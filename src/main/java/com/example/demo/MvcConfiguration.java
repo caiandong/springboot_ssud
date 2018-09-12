@@ -38,7 +38,8 @@ public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("shouye1");
-        registry.addViewController("/album").setViewName("album");
+        registry.addViewController("/album_gundong").setViewName("album_gundong");
+        registry.addViewController("/album_fenye").setViewName("album_fenye");
         registry.addViewController("/te").setViewName("template");
         registry.addViewController("/mas").setViewName("mas");
         registry.addViewController("/form").setViewName("form");
@@ -48,6 +49,6 @@ public class MvcConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/images").addResourceLocations(serverproperties.getXuniduankou());
+        registry.addResourceHandler("/images/**").addResourceLocations("file:"+serverproperties.getXuniduankou());
     }
 }

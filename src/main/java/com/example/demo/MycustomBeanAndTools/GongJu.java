@@ -10,8 +10,12 @@ import java.io.OutputStream;
 
 public class GongJu {
     private static String mulu="没有设置";
-    public static void ChangeImageSize(InputStream in, OutputStream out,int width,int height) throws IOException {
+    public static void ChangeImageSize(InputStream in, OutputStream out,Integer width,Integer height) throws IOException {
         BufferedImage image= ImageIO.read(in);
+        if(width==null||height==null){
+            width=image.getWidth();
+            height=image.getHeight();
+        }
         BufferedImage Image=new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
         Graphics graphics = Image.getGraphics();
         Size percent = calculatelocation(image.getWidth(), image.getHeight(), width, height);

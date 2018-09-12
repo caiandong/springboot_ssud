@@ -10,12 +10,15 @@ import com.example.demo.dao.PeopleMapper;
 import com.example.demo.model.Book;
 import com.example.demo.model.People;
 
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class controller {
@@ -49,10 +52,16 @@ public class controller {
     }
     @GetMapping("/getimages")
     @ResponseBody
-    public List<Book> mmad(@RequestParam(defaultValue = "1") int pagenum){
-
+    public Map<String,Object> mmad(@RequestParam(defaultValue = "1") int pagenum){
+        Map<String,Object> map=new HashMap<String, Object>();
         List<Book> pageselect = bookService.pageselect(pagenum);
+        PageInfo<Book> page = new PageInfo(pageselect,5);
+        map.put("list",pageselect);
+        map.put("currentnum", page.getPageNum());
+        map.put("firstpage", page.getNavigateFirstPage());
+        map.put("allpage", page.getPages());
+        map.put("allnum", page.getTotal());
         System.out.println(pageselect);
-        return pageselect;
+        return map;
     }
 }
