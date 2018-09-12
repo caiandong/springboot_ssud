@@ -39,12 +39,12 @@ public class upload {
     }
 
     @PostMapping("/book")
-    @ResponseBody
+    //@ResponseBody
     String sssa(Book book,Part file) throws Exception {
         return insertAndupdate(book, file);
     }
     @PutMapping("/book")
-    @ResponseBody
+    //@ResponseBody
     String dasdasd(Book book,Part file)throws Exception{
         return insertAndupdate(book,file);
     }
@@ -53,7 +53,7 @@ public class upload {
         if(file.getSubmittedFileName()=="") {
             book.setPicturename(null);
             bookService.insertbook(book);
-            return "没有上传图片";
+            return "/album_fenye";
         }
         String name = UUID.randomUUID().toString() + "."+file.getSubmittedFileName().split("\\.")[1];
         File file1 = new File(dir +name );
@@ -67,6 +67,6 @@ public class upload {
             throw new PictureUploadFailException("图片传输未完成",except);
         }
 
-        return "好了";
+        return "/album_fenye";
     }
 }
