@@ -32,7 +32,7 @@ public class MvcConfiguration implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new MyLocaleChangeInterceptor()).addPathPatterns("/**");
-        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/houtai");
+        registry.addInterceptor(new LoginInterceptor()).addPathPatterns("/houtais");
     }
 
     @Override
@@ -42,9 +42,12 @@ public class MvcConfiguration implements WebMvcConfigurer {
         registry.addViewController("/album_fenye").setViewName("album_fenye");
         registry.addViewController("/te").setViewName("template");
         registry.addViewController("/mas").setViewName("mas");
-        registry.addViewController("/form").setViewName("form");
+        registry.addViewController("/form").setViewName("addform");
         registry.addViewController("/shouye").setViewName("shouye");
         registry.addViewController("/login").setViewName("login");
+        registry.addViewController("/denglu").setViewName("denglu");
+        registry.addViewController("/houtai").setViewName("adminhoutai");
+        registry.addViewController("/userhoutai").setViewName("userhoutai");
     }
 
     @Override

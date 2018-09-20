@@ -10,12 +10,14 @@ import com.example.demo.dao.PeopleMapper;
 import com.example.demo.model.Book;
 import com.example.demo.model.People;
 
+import com.example.demo.model.PeopleExample;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.constraints.NotNull;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,20 +36,12 @@ public class controller {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/haha")
-    public  List<?> nni(){
-        tar.nishisehi();
-        People pl=new People();
-        pl.setAge(18);
-        pl.setLocale("江苏宿迁");
-        pl.setName("小明1");
-        pl.setQq("123456789");
-        return  people.myselect(1,3);
-    }
-
     @PostMapping("/nihao")
-    String mmmmmmm(HttpSession se,String username){
-        se.setAttribute("username",username);
+    String mmmmmmm(HttpSession se,@NotNull String username,@NotNull String password){
+        PeopleExample peopleExample = new PeopleExample();
+        peopleExample.createCriteria().andNameEqualTo(username).andPasswordEqualTo(password);
+        if(this.people.selectByExample(peopleExample)!=null)
+            se.setAttribute("username",username);
         return "redirect:album";
     }
     @GetMapping("/getimages")
