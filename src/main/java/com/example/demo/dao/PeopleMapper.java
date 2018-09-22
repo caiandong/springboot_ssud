@@ -3,8 +3,10 @@ package com.example.demo.dao;
 import com.example.demo.model.People;
 import com.example.demo.model.PeopleExample;
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+@Mapper
 public interface PeopleMapper {
     long countByExample(PeopleExample example);
 
