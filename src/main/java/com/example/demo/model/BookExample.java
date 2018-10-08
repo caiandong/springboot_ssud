@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.ArrayList;
 import java.util.List;
 

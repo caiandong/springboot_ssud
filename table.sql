@@ -23,7 +23,7 @@ create table readrecord(
     foreign key (user_id) references people(id),
     foreign key (book_id) references book(id)
 );
-============================
+#============================
 #这是修改过后的 然后用备份功能提取出来的表结构
 DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
