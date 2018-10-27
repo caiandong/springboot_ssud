@@ -8,11 +8,6 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface PeopleMapper {
-    //自定义
-    int myinsert(String name,String qq,String locale,int age);
-
-    List<People> myselect(int id1,int id2);
-
     long countByExample(PeopleExample example);
 
     int deleteByExample(PeopleExample example);

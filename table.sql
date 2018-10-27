@@ -14,6 +14,7 @@ create table book (
     readcount int (64)  not null,
     author varchar (10)
 );
+
 create table readrecord(
     id int  PRIMARY KEY AUTO_INCREMENT,
     user_id int (64) ,
@@ -22,7 +23,7 @@ create table readrecord(
     foreign key (user_id) references people(id),
     foreign key (book_id) references book(id)
 );
-============================
+#============================
 #这是修改过后的 然后用备份功能提取出来的表结构
 DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -30,12 +31,15 @@ DROP TABLE IF EXISTS `book`;
 CREATE TABLE `book` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `bookname` varchar(20) NOT NULL,
-  `number` int(11) NOT NULL,
+  `hasnumber` int(32) DEFAULT NULL,
   `readcount` int(64) NOT NULL,
   `author` varchar(10) DEFAULT NULL,
+  `picturename` varchar(45) DEFAULT NULL,
+  `bookdescribe` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `bookname` (`bookname`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  UNIQUE KEY `bookname` (`bookname`),
+  UNIQUE KEY `picturename` (`picturename`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 DROP TABLE IF EXISTS `people`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;

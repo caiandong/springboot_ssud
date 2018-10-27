@@ -15,3 +15,5 @@
 	用户id：	user_id		外键	
 	书名id：	book_id		外键	
 	阅读时间：	readingtime	系统生成
+下载上传功能
+借读记录

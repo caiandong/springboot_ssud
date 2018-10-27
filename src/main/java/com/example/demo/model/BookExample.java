@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -234,63 +236,63 @@ public class BookExample {
             return (Criteria) this;
         }
 
-        public Criteria andNumberIsNull() {
-            addCriterion("number is null");
+        public Criteria andHasnumberIsNull() {
+            addCriterion("hasnumber is null");
             return (Criteria) this;
         }
 
-        public Criteria andNumberIsNotNull() {
-            addCriterion("number is not null");
+        public Criteria andHasnumberIsNotNull() {
+            addCriterion("hasnumber is not null");
             return (Criteria) this;
         }
 
-        public Criteria andNumberEqualTo(Integer value) {
-            addCriterion("number =", value, "number");
+        public Criteria andHasnumberEqualTo(Integer value) {
+            addCriterion("hasnumber =", value, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberNotEqualTo(Integer value) {
-            addCriterion("number <>", value, "number");
+        public Criteria andHasnumberNotEqualTo(Integer value) {
+            addCriterion("hasnumber <>", value, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberGreaterThan(Integer value) {
-            addCriterion("number >", value, "number");
+        public Criteria andHasnumberGreaterThan(Integer value) {
+            addCriterion("hasnumber >", value, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberGreaterThanOrEqualTo(Integer value) {
-            addCriterion("number >=", value, "number");
+        public Criteria andHasnumberGreaterThanOrEqualTo(Integer value) {
+            addCriterion("hasnumber >=", value, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberLessThan(Integer value) {
-            addCriterion("number <", value, "number");
+        public Criteria andHasnumberLessThan(Integer value) {
+            addCriterion("hasnumber <", value, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberLessThanOrEqualTo(Integer value) {
-            addCriterion("number <=", value, "number");
+        public Criteria andHasnumberLessThanOrEqualTo(Integer value) {
+            addCriterion("hasnumber <=", value, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberIn(List<Integer> values) {
-            addCriterion("number in", values, "number");
+        public Criteria andHasnumberIn(List<Integer> values) {
+            addCriterion("hasnumber in", values, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberNotIn(List<Integer> values) {
-            addCriterion("number not in", values, "number");
+        public Criteria andHasnumberNotIn(List<Integer> values) {
+            addCriterion("hasnumber not in", values, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberBetween(Integer value1, Integer value2) {
-            addCriterion("number between", value1, value2, "number");
+        public Criteria andHasnumberBetween(Integer value1, Integer value2) {
+            addCriterion("hasnumber between", value1, value2, "hasnumber");
             return (Criteria) this;
         }
 
-        public Criteria andNumberNotBetween(Integer value1, Integer value2) {
-            addCriterion("number not between", value1, value2, "number");
+        public Criteria andHasnumberNotBetween(Integer value1, Integer value2) {
+            addCriterion("hasnumber not between", value1, value2, "hasnumber");
             return (Criteria) this;
         }
 
@@ -421,6 +423,146 @@ public class BookExample {
 
         public Criteria andAuthorNotBetween(String value1, String value2) {
             addCriterion("author not between", value1, value2, "author");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameIsNull() {
+            addCriterion("picturename is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameIsNotNull() {
+            addCriterion("picturename is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameEqualTo(String value) {
+            addCriterion("picturename =", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameNotEqualTo(String value) {
+            addCriterion("picturename <>", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameGreaterThan(String value) {
+            addCriterion("picturename >", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameGreaterThanOrEqualTo(String value) {
+            addCriterion("picturename >=", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameLessThan(String value) {
+            addCriterion("picturename <", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameLessThanOrEqualTo(String value) {
+            addCriterion("picturename <=", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameLike(String value) {
+            addCriterion("picturename like", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameNotLike(String value) {
+            addCriterion("picturename not like", value, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameIn(List<String> values) {
+            addCriterion("picturename in", values, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameNotIn(List<String> values) {
+            addCriterion("picturename not in", values, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameBetween(String value1, String value2) {
+            addCriterion("picturename between", value1, value2, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andPicturenameNotBetween(String value1, String value2) {
+            addCriterion("picturename not between", value1, value2, "picturename");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeIsNull() {
+            addCriterion("bookdescribe is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeIsNotNull() {
+            addCriterion("bookdescribe is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeEqualTo(String value) {
+            addCriterion("bookdescribe =", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotEqualTo(String value) {
+            addCriterion("bookdescribe <>", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeGreaterThan(String value) {
+            addCriterion("bookdescribe >", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeGreaterThanOrEqualTo(String value) {
+            addCriterion("bookdescribe >=", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeLessThan(String value) {
+            addCriterion("bookdescribe <", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeLessThanOrEqualTo(String value) {
+            addCriterion("bookdescribe <=", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeLike(String value) {
+            addCriterion("bookdescribe like", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotLike(String value) {
+            addCriterion("bookdescribe not like", value, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeIn(List<String> values) {
+            addCriterion("bookdescribe in", values, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotIn(List<String> values) {
+            addCriterion("bookdescribe not in", values, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeBetween(String value1, String value2) {
+            addCriterion("bookdescribe between", value1, value2, "bookdescribe");
+            return (Criteria) this;
+        }
+
+        public Criteria andBookdescribeNotBetween(String value1, String value2) {
+            addCriterion("bookdescribe not between", value1, value2, "bookdescribe");
             return (Criteria) this;
         }
     }

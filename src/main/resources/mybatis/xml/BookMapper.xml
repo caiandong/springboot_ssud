@@ -4,9 +4,11 @@
   <resultMap id="BaseResultMap" type="com.example.demo.model.Book">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="bookname" jdbcType="VARCHAR" property="bookname" />
-    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="hasnumber" jdbcType="INTEGER" property="hasnumber" />
     <result column="readcount" jdbcType="INTEGER" property="readcount" />
     <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="picturename" jdbcType="VARCHAR" property="picturename" />
+    <result column="bookdescribe" jdbcType="VARCHAR" property="bookdescribe" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -67,10 +69,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, bookname, number, readcount, author
+    id, bookname, hasnumber, readcount, author, picturename, bookdescribe
   </sql>
-  <insert id="myinsert">
-  </insert>
   <select id="selectByExample" parameterType="com.example.demo.model.BookExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -102,10 +102,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.Book">
-    insert into book (id, bookname, number, 
-      readcount, author)
-    values (#{id,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{number,jdbcType=INTEGER}, 
-      #{readcount,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR})
+    insert into book (id, bookname, hasnumber, 
+      readcount, author, picturename, 
+      bookdescribe)
+    values (#{id,jdbcType=INTEGER}, #{bookname,jdbcType=VARCHAR}, #{hasnumber,jdbcType=INTEGER}, 
+      #{readcount,jdbcType=INTEGER}, #{author,jdbcType=VARCHAR}, #{picturename,jdbcType=VARCHAR}, 
+      #{bookdescribe,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.Book">
     insert into book
@@ -116,14 +118,20 @@
       <if test="bookname != null">
         bookname,
       </if>
-      <if test="number != null">
-        number,
+      <if test="hasnumber != null">
+        hasnumber,
       </if>
       <if test="readcount != null">
         readcount,
       </if>
       <if test="author != null">
         author,
+      </if>
+      <if test="picturename != null">
+        picturename,
+      </if>
+      <if test="bookdescribe != null">
+        bookdescribe,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -133,14 +141,20 @@
       <if test="bookname != null">
         #{bookname,jdbcType=VARCHAR},
       </if>
-      <if test="number != null">
-        #{number,jdbcType=INTEGER},
+      <if test="hasnumber != null">
+        #{hasnumber,jdbcType=INTEGER},
       </if>
       <if test="readcount != null">
         #{readcount,jdbcType=INTEGER},
       </if>
       <if test="author != null">
         #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="picturename != null">
+        #{picturename,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdescribe != null">
+        #{bookdescribe,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -159,14 +173,20 @@
       <if test="record.bookname != null">
         bookname = #{record.bookname,jdbcType=VARCHAR},
       </if>
-      <if test="record.number != null">
-        number = #{record.number,jdbcType=INTEGER},
+      <if test="record.hasnumber != null">
+        hasnumber = #{record.hasnumber,jdbcType=INTEGER},
       </if>
       <if test="record.readcount != null">
         readcount = #{record.readcount,jdbcType=INTEGER},
       </if>
       <if test="record.author != null">
         author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.picturename != null">
+        picturename = #{record.picturename,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bookdescribe != null">
+        bookdescribe = #{record.bookdescribe,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -177,9 +197,11 @@
     update book
     set id = #{record.id,jdbcType=INTEGER},
       bookname = #{record.bookname,jdbcType=VARCHAR},
-      number = #{record.number,jdbcType=INTEGER},
+      hasnumber = #{record.hasnumber,jdbcType=INTEGER},
       readcount = #{record.readcount,jdbcType=INTEGER},
-      author = #{record.author,jdbcType=VARCHAR}
+      author = #{record.author,jdbcType=VARCHAR},
+      picturename = #{record.picturename,jdbcType=VARCHAR},
+      bookdescribe = #{record.bookdescribe,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -190,8 +212,8 @@
       <if test="bookname != null">
         bookname = #{bookname,jdbcType=VARCHAR},
       </if>
-      <if test="number != null">
-        number = #{number,jdbcType=INTEGER},
+      <if test="hasnumber != null">
+        hasnumber = #{hasnumber,jdbcType=INTEGER},
       </if>
       <if test="readcount != null">
         readcount = #{readcount,jdbcType=INTEGER},
@@ -199,15 +221,23 @@
       <if test="author != null">
         author = #{author,jdbcType=VARCHAR},
       </if>
+      <if test="picturename != null">
+        picturename = #{picturename,jdbcType=VARCHAR},
+      </if>
+      <if test="bookdescribe != null">
+        bookdescribe = #{bookdescribe,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.demo.model.Book">
     update book
     set bookname = #{bookname,jdbcType=VARCHAR},
-      number = #{number,jdbcType=INTEGER},
+      hasnumber = #{hasnumber,jdbcType=INTEGER},
       readcount = #{readcount,jdbcType=INTEGER},
-      author = #{author,jdbcType=VARCHAR}
+      author = #{author,jdbcType=VARCHAR},
+      picturename = #{picturename,jdbcType=VARCHAR},
+      bookdescribe = #{bookdescribe,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

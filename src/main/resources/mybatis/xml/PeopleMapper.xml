@@ -8,6 +8,7 @@
     <result column="locale" jdbcType="VARCHAR" property="locale" />
     <result column="qq" jdbcType="VARCHAR" property="qq" />
     <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,17 +69,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, age, locale, qq, email
+    id, name, age, locale, qq, email, password
   </sql>
-  <insert id="myinsert">
-    insert into people ( name, age,
-      locale, qq)
-    values (#{arg0}, #{arg3},
-      #{arg2}, #{arg1})
-  </insert>
-  <select id="myselect" resultMap="BaseResultMap">
-    select * from people where id in (#{arg0},#{arg1})
-  </select>
   <select id="selectByExample" parameterType="com.example.demo.model.PeopleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
@@ -111,9 +103,11 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.People">
     insert into people (id, name, age, 
-      locale, qq, email)
+      locale, qq, email, 
+      password)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
-      #{locale,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR})
+      #{locale,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.People">
     insert into people
@@ -136,6 +130,9 @@
       <if test="email != null">
         email,
       </if>
+      <if test="password != null">
+        password,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -155,6 +152,9 @@
       </if>
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -185,6 +185,9 @@
       <if test="record.email != null">
         email = #{record.email,jdbcType=VARCHAR},
       </if>
+      <if test="record.password != null">
+        password = #{record.password,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -197,7 +200,8 @@
       age = #{record.age,jdbcType=INTEGER},
       locale = #{record.locale,jdbcType=VARCHAR},
       qq = #{record.qq,jdbcType=VARCHAR},
-      email = #{record.email,jdbcType=VARCHAR}
+      email = #{record.email,jdbcType=VARCHAR},
+      password = #{record.password,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -220,6 +224,9 @@
       <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
       </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -229,7 +236,8 @@
       age = #{age,jdbcType=INTEGER},
       locale = #{locale,jdbcType=VARCHAR},
       qq = #{qq,jdbcType=VARCHAR},
-      email = #{email,jdbcType=VARCHAR}
+      email = #{email,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

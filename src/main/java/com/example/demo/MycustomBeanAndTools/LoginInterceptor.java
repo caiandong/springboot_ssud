@@ -1,7 +1,5 @@
-package com.example.demo.MycustomBean;
+package com.example.demo.MycustomBeanAndTools;
 
-import org.omg.PortableInterceptor.Interceptor;
-import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;

@@ -9,3 +9,9 @@
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
 .lh-condensed { line-height: 1.25; }
+.form-signin {
+  width: 100%;
+  /*max-width: 330px;*/
+  padding: 15px;
+  margin: 0 auto;
+}
